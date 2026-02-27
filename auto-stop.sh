@@ -47,8 +47,7 @@ CONTAINERS=$(
 }
 
 if [[ -z "$CONTAINERS" ]]; then
-    log "[WARN] 실행 중인 컨테이너 없음 → 중지 진행"
-    $SHUTDOWN -h now
+    log "[WARN] 실행 중인 컨테이너 없음 → 중지 보류"
     exit 0
 fi
 

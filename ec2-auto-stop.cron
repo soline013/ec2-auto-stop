@@ -5,5 +5,8 @@
 SHELL=/bin/bash
 PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
+# COMPOSE_DIR 설정 (docker-compose.yml 위치)
+COMPOSE_DIR=/home/ubuntu/ec2-auto-stop/test-compose
+
 # 매 1분마다 실행 (테스트용)
 * * * * * root /opt/auto-stop/auto-stop.sh

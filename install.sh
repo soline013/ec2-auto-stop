@@ -12,10 +12,9 @@ INSTALL_DIR="/opt/auto-stop"
 
 echo "=== EC2 자동 중지 스크립트 설치 ==="
 
-# root 권한 확인
+# root가 아니면 sudo로 재실행
 if [[ $EUID -ne 0 ]]; then
-    echo "[ERROR] root 권한으로 실행해주세요: sudo $0"
-    exit 1
+    exec sudo "$0" "$@"
 fi
 
 # 설치 디렉토리 생성
@@ -47,11 +46,9 @@ echo "=== 설치 완료 ==="
 echo ""
 echo "설정 확인:"
 echo "  - 스크립트: $INSTALL_DIR/auto-stop.sh"
-echo "  - cron:     /etc/cron.d/ec2-auto-stop (30분마다)"
+echo "  - cron:     /etc/cron.d/ec2-auto-stop (1분마다)"
 echo "  - 로그:     /var/log/auto-stop.log"
-echo ""
-echo "COMPOSE_DIR 수정이 필요하면:"
-echo "  sudo vi $INSTALL_DIR/auto-stop.sh"
+echo "  - 유휴 임계값: 3분"
 echo ""
 echo "테스트 실행:"
-echo "  sudo $INSTALL_DIR/auto-stop.sh"
+echo "  $INSTALL_DIR/auto-stop.sh"

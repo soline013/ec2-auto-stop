@@ -42,11 +42,10 @@ detect_os() {
     log_info "감지된 OS: $OS $VERSION"
 }
 
-# root 권한 확인
+# root가 아니면 sudo로 재실행
 check_root() {
     if [[ $EUID -ne 0 ]]; then
-        log_error "root 권한으로 실행해주세요: sudo $0"
-        exit 1
+        exec sudo bash "$0"
     fi
 }
 

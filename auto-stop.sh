@@ -12,7 +12,7 @@ set -uo pipefail
 LOCK_FILE="/var/run/auto-stop.lock"
 LOG_FILE="/var/log/auto-stop.log"
 IDLE_THRESHOLD=180  # 테스트용 3분 (운영 시 3600으로 변경)
-COMPOSE_DIR="/home/ubuntu/app"  # ← 환경에 맞게 수정
+COMPOSE_DIR="${COMPOSE_DIR:-/home/ubuntu/ec2-auto-stop/test-compose}"  # 환경변수 또는 기본값
 
 # ── 절대경로 ──────────────────────────────
 DOCKER="/usr/bin/docker"

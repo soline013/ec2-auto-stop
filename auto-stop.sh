@@ -74,7 +74,8 @@ while IFS= read -r CONTAINER; do
     LOG_EPOCH=${LOG_EPOCH:-0}
 
     ELAPSED=$(( NOW - LOG_EPOCH ))
-    log "[INFO] $CONTAINER: 마지막 로그 ${LAST_LOG} UTC (${ELAPSED}초 전)"
+    LAST_LOG_KST=$(TZ=Asia/Seoul date -d "${LAST_LOG}Z" '+%Y-%m-%d %H:%M:%S')
+    log "[INFO] $CONTAINER: 마지막 로그 ${LAST_LOG_KST} KST (${ELAPSED}초 전)"
 
     (( LOG_EPOCH > LATEST_LOG_TIME )) && LATEST_LOG_TIME=$LOG_EPOCH
 

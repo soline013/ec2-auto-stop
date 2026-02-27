@@ -1,0 +1,5 @@
+services:
+  log-once:
+    image: alpine:latest
+    command: sh -c "echo 'Container started' && sleep infinity"
+    restart: "no"

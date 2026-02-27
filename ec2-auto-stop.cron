@@ -1,0 +1,9 @@
+# /etc/cron.d/ec2-auto-stop
+# Docker Compose 로그 기반 EC2 자동 중지
+# 1분마다 유휴 상태 점검 (테스트용, 운영 시 */30으로 변경)
+
+SHELL=/bin/bash
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+
+# 매 1분마다 실행 (테스트용)
+* * * * * root /opt/auto-stop/auto-stop.sh

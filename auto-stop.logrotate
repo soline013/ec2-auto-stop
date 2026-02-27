@@ -1,0 +1,9 @@
+/var/log/auto-stop.log {
+    daily
+    rotate 14
+    compress
+    delaycompress
+    missingok
+    notifempty
+    create 640 root root
+}
